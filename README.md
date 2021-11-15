@@ -78,7 +78,7 @@ Calculamos cuánto tardó en ejecutar cada función e informamos al usuario que 
 
 #### Enmascarar en ASM 💻
 
-> Para este punto se dasarrollo el que codigo que esta en el archivo <nombre del archivo>.
+> Para este punto se dasarrollo el que codigo que esta en el archivo <nombre del archivo enmascarar.asm.
 
 Recibe 4 parametros
   * la imagen a
@@ -113,8 +113,8 @@ Recibe 4 parametros
  ![image](https://user-images.githubusercontent.com/21018256/141842187-a5f3172f-732d-4994-985a-0c9d280121c1.png)
 
  De esta forma, observamos que la ejecución en ASM es mucho más rápida ya que se opera directamente en los registros evitando muchas etapas de compilación que se realizan en C. 
- 
-#### Comentarios 💬
+
+## Muchas Gracias!
 
 ## Autores ✒️
 - Emiliano Saucedo

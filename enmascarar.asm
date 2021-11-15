@@ -8,27 +8,25 @@ section .text
    
 enmascarar_asm:
     enter 0,0
-    ;push ebp ;apunta a la base de la pila
-    ;mov ebp, esp 
     
-    mov ecx, 0 ;inicializo el contador
+    mov esi, 0 ;inicializo el contador
   
     mov edx,[ebp+20] ;apunta a cant
     mov [cantidad],edx
     
   ciclo:
-    cmp ecx, [cantidad]  
+    cmp esi, [cantidad]  
     je termino
     
     ;parametros
     mov eax,[ebp+8]  ; puntero a la imagen a
-    MOVQ mm0,[eax+ecx] 
+    MOVQ mm0,[eax+esi] 
    
     mov eax,[ebp+12]  ;puntero a la imagen b
-    MOVQ mm1,[eax+ecx]
+    MOVQ mm1,[eax+esi]
     
     mov eax,[ebp+16] ;puntero a la mascara
-    MOVQ mm2,[eax+ecx]
+    MOVQ mm2,[eax+esi]
 
    
     PAND mm1, mm2 ;mantiene la imagen b cuando el pixel es negro f [0f0f00ff] 
@@ -37,16 +35,15 @@ enmascarar_asm:
 		   ;mm2 [afafaaff] de la mascara uso los pixel de a si es blanco 
     POR mm1, mm2 ;[ababaabb]
        
-    ;debe devolver la imagen a - combinada con a y b 
+    ;debe devolver la combinacion de la imagen a y b 
     mov eax,[ebp+8]
-    MOVQ [eax+ecx], mm1
+    MOVQ [eax+esi], mm1 ;se guarda el cambio
  
-    add ecx, 8 ; manejamos registros de mmx , se desplaza de a 64 bits
+    add esi, 8 ; manejamos registros de mmx , se desplaza de a 64 bits
     jmp ciclo
     
    termino:
-    leave
-    ;mov esp, ebp ;reinicio la pila
-    ;pop ebp 
+    
+    leave ;Se reinicia la pila
     
     ret

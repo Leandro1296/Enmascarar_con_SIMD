@@ -78,7 +78,7 @@ Calculamos cuánto tardó en ejecutar cada función e informamos al usuario que 
 
 #### Enmascarar en ASM 💻
 
-> Para este punto se dasarrollo el que codigo que esta en el archivo <nombre del archivo enmascarar.asm.
+> Para este punto se dasarrollo el que codigo que esta en el archivo enmascarar.asm.
 
 Recibe 4 parametros
   * la imagen a
